@@ -29,7 +29,7 @@ const supabaseClient = createClient(supabaseUrl, supabaseKey);
 async function getDocuments() {
   const { data, error } = await supabaseClient
     .from("college")
-    .select("id, desc");
+    .select("id, description");
 
   if (error) {
     console.error("Error fetching documents:", error);

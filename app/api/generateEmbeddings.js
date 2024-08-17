@@ -1,4 +1,4 @@
-import { generateEmbeddings } from "../../pythonParsing/embeddings";
+import { generateEmbeddings } from "../pythonParsing/embeddings";
 
 export default async function handler(req, res) {
   if (req.method === "POST") {
