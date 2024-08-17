@@ -1,4 +1,4 @@
-import generateEmbeddings from "../pythonParsing/embeddings.js";
+import generateEmbeddings from "../pythonParsing/embeddings.mjs";
 
 async function main() {
   try {
