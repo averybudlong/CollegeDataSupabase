@@ -51,7 +51,7 @@ export default async function generateEmbeddings() {
 
     // console.log(data);
 
-    const input = document.desc;
+    const input = document.description;
     try {
       console.log(`Generating embedding for document id: ${document.id}`);
       const embeddingResponse = await openai.embeddings.create({

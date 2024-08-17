@@ -1,0 +1,26 @@
+CREATE OR REPLACE FUNCTION match_documents(
+  query_embedding vector(1536),
+  match_threshold float,
+  match_count int
+)
+RETURNS TABLE (
+  id integer,
+  name text,
+  description text,
+  similarity float
+)
+LANGUAGE plpgsql
+AS $$
+BEGIN
+  RETURN QUERY
+  SELECT
+    college.id,
+    college.name,
+    college.description,
+    1 - (college.embedding <=> query_embedding) AS similarity
+  FROM college
+  WHERE 1 - (college.embedding <=> query_embedding) > match_threshold
+  ORDER BY college.embedding <=> query_embedding
+  LIMIT match_count;
+END;
+$$;
